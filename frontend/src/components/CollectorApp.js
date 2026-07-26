@@ -15,7 +15,7 @@ function CollectorApp({ collectorId }) {
   const fetchClients = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3001/api/clients', {
+      const response = await axios.get('https://cobranza-app-production-91b6.up.railway.app/api/clients', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setClients(response.data);
@@ -27,7 +27,7 @@ function CollectorApp({ collectorId }) {
   const fetchLoans = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:3001/api/loans', {
+      const response = await axios.get('https://cobranza-app-production-91b6.up.railway.app/api/loans', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLoans(response.data);

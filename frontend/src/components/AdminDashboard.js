@@ -17,9 +17,9 @@ function AdminDashboard() {
     const headers = { Authorization: `Bearer ${token}` };
     
     const [loansRes, clientsRes, collectorsRes] = await Promise.all([
-      axios.get('http://localhost:3001/api/loans', { headers }),
-      axios.get('http://localhost:3001/api/clients', { headers }),
-      axios.get('http://localhost:3001/api/collectors', { headers })
+      axios.get('https://cobranza-app-production-91b6.up.railway.app/api/loans', { headers }),
+      axios.get('https://cobranza-app-production-91b6.up.railway.app/api/clients', { headers }),
+      axios.get('https://cobranza-app-production-91b6.up.railway.app/api/collectors', { headers })
     ]);
     
     setLoans(loansRes.data);
@@ -36,7 +36,7 @@ function AdminDashboard() {
     const end = sunday.toISOString().split('T')[0];
     
     const token = localStorage.getItem('token');
-    const response = await axios.get(`http://localhost:3001/api/reports/weekly?start_date=${start}&end_date=${end}`, {
+    const response = await axios.get(`https://cobranza-app-production-91b6.up.railway.app/api/reports/weekly?start_date=${start}&end_date=${end}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     setReport(response.data);
@@ -46,7 +46,7 @@ function AdminDashboard() {
   const reassignClient = async (clientId, newCollectorId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:3001/api/clients/${clientId}/reassign`, 
+      await axios.put(`https://cobranza-app-production-91b6.up.railway.app/api/clients/${clientId}/reassign`, 
         { new_collector_id: newCollectorId },
         { headers: { Authorization: `Bearer ${token}` } }
       );

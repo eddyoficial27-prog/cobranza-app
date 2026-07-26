@@ -31,7 +31,7 @@ function NewLoanForm({ client, onSave, onCancel }) {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:3001/api/loans', {
+      await axios.post('https://cobranza-app-production-91b6.up.railway.app/api/loans', {
         client_id: client.id,
         principal_amount: calculated.principal
       }, {

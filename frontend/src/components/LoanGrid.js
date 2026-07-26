@@ -9,7 +9,7 @@ function LoanGrid({ loan, onBack, onPaymentComplete }) {
     
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:3001/api/payments', {
+      await axios.post('https://cobranza-app-production-91b6.up.railway.app/api/payments', {
         loan_id: loan.id,
         day_number: dayNumber,
         amount: loan.daily_payment,

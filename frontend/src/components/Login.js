@@ -9,7 +9,7 @@ function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/login', {
+      const response = await axios.post('https://cobranza-app-production-91b6.up.railway.app/api/login', {
         username,
         password
       });
